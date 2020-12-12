@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { ToastContainer } from 'react-toastify';
+import { HashRouter } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import 'antd/dist/antd.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <HashRouter>
     <App />
-  </React.StrictMode>,
+    <ToastContainer />
+  </HashRouter>,
   document.getElementById('root')
 );
 
