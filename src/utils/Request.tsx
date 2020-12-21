@@ -15,7 +15,7 @@ export default function Request(config: AxiosRequestConfig, callback: (res : any
     config.url = url;
     Axios(config)
     .then(res => {
-        console.log(res.status);
+        console.log(res);
         if(res.data.code !== 1000){
             toast(res.data.message, {
                 position: toast.POSITION.TOP_RIGHT,
