@@ -8,6 +8,7 @@ import './Main.css';
 import Dashboard from './pages/dashboard/Dashboard';
 import Project from './pages/project/Project';
 import Case from './pages/case/Case';
+import ProjectDetail from './pages/projectDetail/ProjectDetail';
 
 class Main extends React.Component {
     state = {
@@ -48,6 +49,7 @@ class Main extends React.Component {
                     >
                         <Route path="/dashboard" component={Dashboard} />
                         <Route path="/project" component={Project} />
+                        <Route path="/projectDetail/:id/detail" component={ProjectDetail} />
                         <Route path="/case" component={Case} />
                         <Redirect from='/' to='/dashboard' />
                     </Layout.Content>

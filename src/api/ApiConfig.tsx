@@ -44,6 +44,36 @@ const caseRemove = {
     method: 'delete',
 };
 
+const projectList = {
+    path: '/api/project/list',
+    method: 'get',
+};
+
+const projectAdd = {
+    path: '/api/project/add',
+    method: 'post',
+};
+
+const projectModify = {
+    path: '/api/project/modify',
+    method: 'post',
+};
+
+const projectRemove = {
+    path: '/api/project/{id}/remove',
+    method: 'delete',
+};
+
+const projectDetail = {
+    path: '/api/project/{id}/detail',
+    method: 'get',
+};
+
+const caseSuiteUpdate = {
+    path: '/api/suite/{projectId}/update',
+    method: 'post',
+}
+
 export {
     userLogin,
     caseTotal,
@@ -54,4 +84,10 @@ export {
     caseAdd,
     caseModify,
     caseRemove,
+    projectList,
+    projectAdd,
+    projectModify,
+    projectRemove,
+    projectDetail,
+    caseSuiteUpdate,
 }

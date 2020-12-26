@@ -205,7 +205,7 @@ class Case extends React.Component<{}, CaseState>{
             headers: [],
             body: "",
             assertions: [],
-        }
+        };
     }
 
     componentDidMount() {
