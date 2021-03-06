@@ -40,5 +40,9 @@ export default function Request(config: AxiosRequestConfig, callback: (res : any
             progress: undefined,
         });
         console.log(err);
+        if(err.response.status === 401) {
+            console.log("back to login");
+            window.location.href = '/#/login';
+        }
     })
 }

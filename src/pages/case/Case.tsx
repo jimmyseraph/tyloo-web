@@ -1,7 +1,7 @@
 import React from 'react';
-import { PageHeader, Row, Card, Button, Table, Space, Form, Input, Modal, Select } from 'antd';
+import { PageHeader, Row, Card, Button, Table, Space, Form, Input, Modal, Select, Descriptions } from 'antd';
 import { FormInstance } from 'antd/lib/form';
-import { caseList, caseAdd, caseRemove, caseModify } from '../../api/ApiConfig';
+import { caseList, caseAdd, caseRemove, caseModify, runDebug } from '../../api/ApiConfig';
 import Request from '../../utils/Request';
 import DynamicInputGroup from '../../components/DynamicInputGroup';
 
@@ -119,6 +119,33 @@ class CaseDetail extends React.Component<CaseInfoProp, CaseInfoState> {
         });
     };
 
+    handleDebug = () => {
+        let payload: CaseInfoRecord = {
+            caseId: this.props.caseData.caseId,
+            caseName: this.formRef.current?.getFieldValue("caseName"),
+            description: this.formRef.current?.getFieldValue("description"),
+            url: this.formRef.current?.getFieldValue("url"),
+            method: this.formRef.current?.getFieldValue("method"),
+            headers: this.props.caseData.headers,
+            body: this.formRef.current?.getFieldValue("body"),
+            assertions: this.props.caseData.assertions,
+        };
+        Request({
+            url: runDebug.path,
+            method: 'post',
+            headers: {
+                "Content-Type": 'application/json; charset=UTF-8',
+                "Access-Token": sessionStorage.getItem("token"),
+            },
+            data: payload,
+        }, (res) => {
+            console.log(res.data.data);
+            Modal.info({
+                content: res.data.data,
+            });
+        });
+    };
+
     render() {
         const { caseData } = this.props;
         return (
@@ -167,6 +194,10 @@ class CaseDetail extends React.Component<CaseInfoProp, CaseInfoState> {
                         handleRemove={this.handleRemoveAssertion}
                     />
                 </Form>
+                <div style={{textAlign: 'end', marginTop: 10}}>
+                    <Button type='default' onClick={this.handleDebug}>调试</Button>
+                </div>
+                
             </Modal>
         );
     };

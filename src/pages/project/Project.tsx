@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageHeader, Row, Button, Table, Tag, Space, Form, Input, Modal } from 'antd';
 import Request from '../../utils/Request';
-import { projectList, projectAdd, projectModify, projectRemove } from '../../api/ApiConfig';
+import { projectList, projectAdd, projectModify, projectRemove, projectExecute } from '../../api/ApiConfig';
 import { FormInstance } from 'antd/lib/form';
 import { Link } from 'react-router-dom';
 
@@ -171,6 +171,20 @@ class Project extends React.Component<{}, ProjectState>{
                 });
             },
         });
+    };
+
+    handleExecute = (record: any) => {
+        Request({
+            url: projectExecute.path,
+            method: 'get',
+            headers: {
+                "Access-Token": sessionStorage.getItem("token"),
+            },
+        }, (res) => {
+            this.getProjects();
+        }, {
+            id: record.projectId,
+        });
     }
 
     columns = [
@@ -212,7 +226,7 @@ class Project extends React.Component<{}, ProjectState>{
                 return (
                     <Space size='middle'>
                         <Button size='small' type='primary' onClick={() => this.handleEdit(record)}>编辑</Button>
-                        <Button size='small' type='primary'>运行</Button>
+                        <Button size='small' type='primary' onClick={() => this.handleExecute(record)}>运行</Button>
                         <Button size='small' danger onClick={() => this.handleDelete(record)} >删除</Button>
                         <Link to={{
                             pathname: `/projectDetail/${record.projectId}/detail`,

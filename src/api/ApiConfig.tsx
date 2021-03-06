@@ -69,8 +69,18 @@ const projectDetail = {
     method: 'get',
 };
 
+const projectExecute = {
+    path: '/api/project/{id}/execute',
+    method: 'get',
+}
+
 const caseSuiteUpdate = {
     path: '/api/suite/{projectId}/update',
+    method: 'post',
+}
+
+const runDebug = {
+    path: '/api/execute/try',
     method: 'post',
 }
 
@@ -89,5 +99,7 @@ export {
     projectModify,
     projectRemove,
     projectDetail,
+    projectExecute,
     caseSuiteUpdate,
+    runDebug,
 }

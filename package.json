@@ -2,17 +2,27 @@
   "name": "tyloo-web",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:20000",
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.7",
+    "antd": "^4.13.1",
+    "axios": "^0.21.1",
+    "bizcharts": "^4.1.7",
+    "bootstrap": "^4.6.0",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.5.1",
     "react-dom": "^17.0.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-toastify": "^6.2.0",
     "typescript": "^4.0.3",
@@ -41,5 +51,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/mockjs": "^1.0.3",
+    "mockjs": "^1.1.0",
+    "http-proxy-middleware": "^1.0.6"
   }
 }
