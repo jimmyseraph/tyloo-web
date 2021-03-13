@@ -231,6 +231,9 @@ class Project extends React.Component<{}, ProjectState>{
                         <Link to={{
                             pathname: `/projectDetail/${record.projectId}/detail`,
                         }}>详情</Link>
+                        <Link to={{
+                            pathname: `/report/${record.projectId}`,
+                        }} >查看测试报告</Link>
                     </Space>
                 );
             }

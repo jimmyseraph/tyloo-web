@@ -84,6 +84,16 @@ const runDebug = {
     method: 'post',
 }
 
+const getReport = {
+    path: '/api/report/{projectId}/query',
+    method: 'get',
+}
+
+const getExecDetail = {
+    path: '/api/report/case',
+    method: 'post',
+}
+
 export {
     userLogin,
     caseTotal,
@@ -102,4 +112,6 @@ export {
     projectExecute,
     caseSuiteUpdate,
     runDebug,
+    getReport,
+    getExecDetail,
 }

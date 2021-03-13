@@ -140,8 +140,27 @@ class CaseDetail extends React.Component<CaseInfoProp, CaseInfoState> {
             data: payload,
         }, (res) => {
             console.log(res.data.data);
+            let data = res.data.data;
             Modal.info({
-                content: res.data.data,
+                content: (
+                    <div>
+                        <Descriptions title="Request" column={1}>
+                            <Descriptions.Item label='URL'>{data.url}</Descriptions.Item>
+                            <Descriptions.Item label='Method'>{data.method}</Descriptions.Item>
+                            <Descriptions.Item label='Headers'>{data.requestHeaders}</Descriptions.Item>
+                            <Descriptions.Item label='Body'>{data.requestBody}</Descriptions.Item>
+                        </Descriptions>
+                        <Descriptions title='Response' column={1}>
+                            <Descriptions.Item label='Headers'>{data.responseHeaders}</Descriptions.Item>
+                            <Descriptions.Item label='Body'>{data.responseBody}</Descriptions.Item>
+                            <Descriptions.Item label='断言日志'>{data.message}</Descriptions.Item>
+                            <Descriptions.Item label='执行状态'>{data.status}</Descriptions.Item>
+                            <Descriptions.Item label='开始时间'>{data.startTime}</Descriptions.Item>
+                            <Descriptions.Item label='执行时间(ms)'>{data.duration}</Descriptions.Item>
+                        </Descriptions>
+                    </div>
+                ),
+                title: '调试结果',
             });
         });
     };

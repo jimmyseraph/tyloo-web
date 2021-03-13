@@ -6,6 +6,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 // import './mock/CaseApi';
 // import './mock/BugApi';
 // import './mock/ProjectApi';
+import './mock/ReportApi';
 import './App.css';
 
 function App() {
